@@ -6,6 +6,8 @@ import connectToMongoDB from "./db/connectToMongoDB.js";
 
 import messageRoutes from "./routes/message.routes.js";
 
+import userRoutes from "./routes/user.routes.js"
+
 const app = express();
 dotenv.config();
 const PORT = process.env.PORT ||5000
@@ -18,6 +20,7 @@ app.use(express.urlencoded({ extended: true })); // 解析 application/x-www-for
 app.use(cookieParser())
 app.use("/api/auth",authRoutes)
 app.use("/api/messages", messageRoutes);
+app.use("api/users",userRoutes);
 
 // app.get("/api/auth/signup",(req,res) =>{
 //   console.log("signup route")
